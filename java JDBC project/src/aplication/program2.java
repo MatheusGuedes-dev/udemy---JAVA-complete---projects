@@ -1,8 +1,5 @@
 package aplication;
 
-import java.time.LocalDate;
-import java.util.List;
-
 import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
 import model.dao.SellerDao;
@@ -14,21 +11,21 @@ public class program2 {
 	public static void main(String[] args) {
 
 		DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
+		SellerDao sellerDao = DaoFactory.createSellerDao();
 
-		System.out.println("=== test 1: seller findById ===");
+		System.out.println("=== test 1: Department findById ===");
 		Department department = departmentDao.findById(3);
 		
 		System.out.println(department);
-		/*
+		
 		System.out.println();
 		System.out.println("=== test 2: seller findByDepartment ===");
-		Department department = new Department(2, null);
-		List<Seller> list = sellerDao.findByDepartment(department);
-
-		for (Seller obj : list) {
-			System.out.println(obj);
-		}
+		Seller seller = sellerDao.findById(1);
 		
+		System.out.println(departmentDao.findBySeller(seller));
+		
+		
+		/*
 		System.out.println();
 		System.out.println("=== test 3: seller findAll ===");
 		list = sellerDao.findAll();
