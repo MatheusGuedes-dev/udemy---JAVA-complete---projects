@@ -83,7 +83,31 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
 	@Override
 	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
+		PreparedStatement st = null;
+		PreparedStatement newst = null;
+		ResultSet rs = null;
+		
+		try {
+			st = conn.prepareStatement("SELECT 1 FROM seller WHERE DepartmentId = ?");
+			st.setInt(1, id);
+			rs = st.executeQuery();
+			
+			if (rs.next()) {
+				throw new DbException("this department cannot be deleted because there are seller(s) linked to it");
+			}
+			newst = conn.prepareStatement("DELETE FROM department WHERE Id = ?");
+			newst.setInt(1, id);
+			newst.executeUpdate();
+			
+			
+		}catch(SQLException e) {
+			throw new DbException(e.getMessage());
+		}
+		finally {
+			DB.closeStatement(st);
+			DB.closeStatement(newst);
+			DB.closeResultSet(rs);
+		}
 
 	}
 

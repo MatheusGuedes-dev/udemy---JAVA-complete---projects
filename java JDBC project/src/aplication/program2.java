@@ -2,6 +2,7 @@ package aplication;
 
 import java.util.List;
 
+import db.DbException;
 import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
 import model.dao.SellerDao;
@@ -47,11 +48,19 @@ public class program2 {
 		dep.setName("literature");
 		departmentDao.update(dep);
 		System.out.println("\nUpdate completed");
-		/*
+		
 		System.out.println("\n === test 6: Department delete ===");
-		sellerDao.deleteById(7);
+		departmentDao.deleteById(7);
 		System.out.println("Delete completed!");
-		*/
+		
+		try {
+			departmentDao.deleteById(2);
+			System.out.println("wrong deletion");
+		}
+		catch(DbException dbe) {
+			System.out.println(dbe.getMessage());
+		}
+		
 	}
 
 }
