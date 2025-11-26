@@ -35,12 +35,13 @@ public class program2 {
 		for (Department dep : list) {
 			System.out.println(dep);
 		}
-		/*
-		System.out.println("\n === test 4: seller insert ===");
-		Seller newSeller = new Seller(null, "Jorge", "jorge@gmail.com", LocalDate.of(2022, 07, 20), 4000.0, department);
-		sellerDao.insert(newSeller);
-		System.out.println("Inserted! new id = " + newSeller.getId());
 		
+		System.out.println("\n === test 4: seller insert ===");
+		Department newDepartment = new Department(null, "music");
+		departmentDao.insert(newDepartment);
+		System.out.println("Inserted! new id = " + newDepartment.getId());
+		
+		/*
 		System.out.println("\n === test 5: seller update ===");
 		seller = sellerDao.findById(1);
 		seller.setName("Murilo Martins");
