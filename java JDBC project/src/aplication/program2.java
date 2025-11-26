@@ -36,19 +36,19 @@ public class program2 {
 			System.out.println(dep);
 		}
 		
-		System.out.println("\n === test 4: seller insert ===");
-		Department newDepartment = new Department(null, "music");
+		System.out.println("\n === test 4: Department insert ===");
+		Department newDepartment = new Department(null, "Games");
 		departmentDao.insert(newDepartment);
 		System.out.println("Inserted! new id = " + newDepartment.getId());
 		
-		/*
-		System.out.println("\n === test 5: seller update ===");
-		seller = sellerDao.findById(1);
-		seller.setName("Murilo Martins");
-		sellerDao.update(seller);
-		System.out.println("\nUpdate completed");
 		
-		System.out.println("\n === test 6: seller delete ===");
+		System.out.println("\n === test 5: Department update ===");
+		Department dep = departmentDao.findById(5);
+		dep.setName("literature");
+		departmentDao.update(dep);
+		System.out.println("\nUpdate completed");
+		/*
+		System.out.println("\n === test 6: Department delete ===");
 		sellerDao.deleteById(7);
 		System.out.println("Delete completed!");
 		*/
