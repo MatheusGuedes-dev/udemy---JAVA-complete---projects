@@ -46,7 +46,6 @@ public class Order implements Serializable{
 	
 	public Order() {}
 	
-
 	public Order(Long id, Instant date, OrderStatus orderStatus, User client) {
 		super();
 		this.id = id;
@@ -108,6 +107,14 @@ public class Order implements Serializable{
 
 	public void setClient(User client) {
 		this.client = client;
+	}
+	
+	public Double getTotal() {
+		double sum = 0.0;
+		for (OrderItem orderItem : items) {
+			sum += orderItem.getSubTotal();
+		}
+		return sum;
 	}
 
 
