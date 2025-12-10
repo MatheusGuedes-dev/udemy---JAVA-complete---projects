@@ -98,7 +98,7 @@ public class King extends ChessPiece {
 
 			//special move queen side rook
 			Position posRook2 = new Position(position.getRow(), position.getColumn() -4);
-			if(testRookCastling(posRook1)) {
+			if(testRookCastling(posRook2)) {
 				Position p1 = new Position(position.getRow(), position.getColumn() -1);
 				Position p2 = new Position(position.getRow(), position.getColumn() -2);
 				Position p3 = new Position(position.getRow(), position.getColumn() -3);
